@@ -1,0 +1,434 @@
+/* ************************** Base Initialisation ************************** */
+:root {
+  --primary-color: #d1855d;
+  --secondary-color: #e9bd8c;
+  --background-theme: #F3F3F3;
+  --nav-menu-color: rgba(30, 30, 30, 0.95);
+  --nav-hover: rgba(0, 0, 0, 0.1);
+  --mobile-hover: rgba(255, 255, 255, 0.1);
+
+  --sub-opacity: 0.3;
+  --subscribeA: rgba(57, 115, 208, var(--sub-opacity));
+  --subscribeB: rgba(102, 0, 204, var(--sub-opacity));
+  --subscribeC: rgba(255, 191, 0, var(--sub-opacity));
+
+  --subscribe-theme: linear-gradient(115deg, var(--subscribeA) 0%, var(--subscribeB) 50%, var(--subscribeC) 100%);
+
+  --subscribe-color:  black;
+
+  --loading: linear-gradient( var(--secondary-color) 0%, #fff 25%, #fff 75%, var(--secondary-color) 100%);
+
+  --overlay-color: rgba(0, 0, 0, 0.5);
+  --overlay-color-2: rgba(0, 0, 0, 0.75);
+
+  --blurb-overlay: rgba(0, 0, 0, 0.5);
+  --tote-theme: rgba(207, 220, 238, 0.5);
+
+  --cloud-theme: rgba(246, 235, 245, 1);
+
+  --pack-theme: rgba(203, 186, 166, 0.3);
+
+  --panel-theme1: rgba(255, 228, 243, 0.4);
+  --panel-theme2: rgba(118, 159, 182, 0.4);
+  --panel-theme: linear-gradient(105deg, var(--panel-theme1) 0%,  var(--panel-theme2) 100%);
+}
+
+*:before,
+*:after,
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Didact Gothic', sans-serif;
+  color: black;
+}
+
+h1, h2, h3, h4 {
+  text-transform: capitalize;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+
+  z-index: 1;
+}
+
+/* ************************** Navigation Bar ************************** */
+nav {
+  background-color: var(--background-theme);
+  height: 60px;
+
+  transition: all 0.5s ease-in;
+
+  z-index: 1;
+}
+
+nav + section {
+  display: none;
+}
+
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  z-index: 1;
+}
+
+.sticky-nav nav {
+  background-color: var(--nav-menu-color);
+}
+
+.sticky-nav .brand h1, .sticky-nav a, .sticky-nav .hamburger {
+  color: white;
+}
+
+.sticky-nav li:hover {
+  background-color: var(--mobile-hover);
+}
+
+.sticky-nav + section {
+    margin-top: 60px;
+}
+
+nav .hamburger {
+  display: none;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: inherit;
+  min-height: inherit;
+  padding: 0.5rem 1rem;
+}
+
+nav .brand {
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+nav img {
+  display:none;
+  max-width: 50px;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav li {
+  padding: 1rem 1rem;
+}
+
+nav li:hover {
+  background-color: var(--nav-hover);
+}
+
+li.sub {
+  background: var(--subscribe-theme);
+  font-weight: 900;
+}
+
+.sticky-nav li.sub {
+  font-weight: 900;
+}
+
+nav h1 {
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: black;
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes navMenu {
+  from {
+    transform-origin: top;
+    transform: scaleY(0);
+  }
+  to {
+    transform-origin: top;
+    transform: scaleY(1);
+  }
+}
+
+/* ************************ Subscription Section ************************ */
+#subscribe {
+  margin-top: 1rem;
+}
+
+.sub-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background: var(--subscribe-theme);
+  padding-bottom: 1rem;
+
+  margin: 0 3rem;
+  border-radius: 20px 20px 0 0;
+  border: 0px solid var(--subscribe-color);
+}
+
+.sub-form .text {
+  padding: 1rem;
+  color: var(--subscribe-color);
+}
+
+.sub-form .text h1 {
+  font-size: 2.5rem;
+}
+
+.sub-form .text p {
+  padding: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.sub-form .text span {
+  font-weight: 900;
+}
+
+.sub-form .text li {
+  padding: 0.2rem;
+  font-weight: 700;
+}
+
+.reg {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  padding: 0 1rem;
+}
+
+.form{
+  position: relative;
+
+  height: 3rem;
+  margin: 0.5rem;
+}
+
+.sub-form button {
+  position: relative;
+
+  height: 3rem;
+  margin: 0.5rem;
+  width: auto;
+
+  margin: 0.5rem;
+
+  border: 1px solid var(--subscribe-color);
+  background-color: var(--nav-hover);
+
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 900;
+  color: var(--subscribe-color);
+}
+
+.sub-form button:hover {
+  background-color: var(--mobile-hover);
+}
+
+.form__input {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+
+  outline: none;
+  background: none;
+
+  color: var(--subscribe-color);
+  border: 1px solid var(--subscribe-color);
+
+  transition: all 0.3s ease-in-out;
+
+  background-color: inherit;
+}
+
+.form__label {
+  position: absolute;
+  left: 1rem;
+  top: 0.95rem;
+  padding :0 0.3rem;
+  cursor: text;
+  transition: all 0.2s ease-in;
+
+  color: var(--subscribe-color);
+}
+
+.form__input:focus ~ .form__label,
+.form__input:not(:placeholder-shown).form__input:not(:focus) ~.form__label,
+.form__label:focus {
+  opacity: 0;
+}
+
+/* ************************** Footer Section ************************** */
+footer .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 25vh;
+  min-height: 150px;
+
+  background: black;
+}
+
+footer .icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .icons i:hover {
+  color: var(--secondary-color);
+}
+
+footer .links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content .copy, .content i {
+  color: white;
+  padding: 1rem 0.5rem;
+}
+
+/* ************************** Mobile Device Use ************************** */
+@media screen and (max-width: 800px) {
+  nav .menu {
+    position: absolute;
+
+    top: 60px;
+    left: 0;
+    width: 100%;
+
+    transform: scaleY(0);
+    transform-origin: top left;
+    transition: all 0.3s ease-in;
+
+    z-index: 1;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--nav-menu-color);
+    border-top: 1px solid var(--background-theme);
+
+    transform: scaleY(0);
+    transform-origin: top left;
+    transition: all 0.3s ease-in;
+  }
+
+  nav .menu li {
+    opacity: 0;
+  }
+
+  nav .menu a {
+    color: white;
+  }
+
+  nav li:hover {
+    background-color: var(--mobile-hover);
+  }
+
+  nav .menu-show {
+    transform: scaleY(1);
+    z-index: 1;
+  }
+
+  nav .menu-show ul {
+    transform: scaleY(1);
+  }
+
+  nav .hamburger {
+    display: block;
+
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    background: none;
+
+    cursor: pointer;
+
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in;
+  }
+
+  nav .hamburger-click {
+    transform: rotate(360deg);
+  }
+
+  nav .hamburger:hover {
+    background-color: var(--nav-hover);
+  }
+
+  .sticky-nav .hamburger:hover {
+    background-color: var(--mobile-hover);
+  }
+
+  .sub-form .reg {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .sub-form {
+    padding: 2rem;
+  }
+
+  .sub-form p {
+    display: none;
+  }
+
+  .subscribe .text h1 {
+    font-size: 2rem;
+  }
+
+  .sub-form ul {
+    font-size: 1rem;
+    padding-top: 1rem;
+  }
+}

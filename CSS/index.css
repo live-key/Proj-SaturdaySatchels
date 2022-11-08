@@ -1,0 +1,427 @@
+/* ************************** Section A - Showcase ************************** */
+.section-a {
+  position: relative;
+  height: 540px;
+  overflow: hidden;
+}
+
+.section-a video{
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-a .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  top: 0;
+  left: 0;
+
+  background-color: var(--overlay-color);
+}
+
+.section-a .text {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: 10vh 15vw;
+}
+
+.section-a h1 {
+  font-size: 5rem;
+}
+
+.section-a p {
+  font-size: 1rem;
+  color: white;
+}
+
+.section-a a {
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+
+  margin-top: 1rem;
+  padding: 1rem 1rem;
+  border: 1px solid var(--mobile-hover);
+}
+
+.section-a a:hover {
+  background-color: var(--mobile-hover);
+}
+
+.section-a .text .item {
+  padding: 1rem 1rem;
+  max-width: 600px;
+  color: white;
+}
+
+.section-a .scroll {
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+  padding: 2rem;
+
+  animation: upDown 1s linear infinite;
+}
+
+@keyframes upDown {
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(10%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@media screen and (max-width: 800px) {
+  .section-a h1 {
+    font-size: 2rem
+  }
+}
+
+/* ************************** Section B - Products ************************** */
+.section-b {
+  padding: 2rem 0;
+}
+
+.section-b .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.underline {
+  margin: 1.5rem auto 0 auto;
+  height: 5px;
+  width: 100px;
+  background: black;
+}
+
+.section-b .pack {
+  position: absolute;
+  height: 100%;
+  width: auto;
+}
+
+.section-b .products {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+
+  padding: 2rem;
+  padding-bottom: 0;
+  width: 100%;
+}
+
+.section-b .panel {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden;
+
+  border-radius: 5px;
+
+  background: var(--panel-theme);
+}
+
+/* .section-b .panel.tote {
+  background-color: var(--pack-theme);
+  border: 5px var(--tote-theme);
+}
+
+.section-b .panel.cloud {
+  background-color:  var(--pack-theme);
+  border: 5px var(--cloud-theme);
+} */
+
+.section-b .rating{
+  position: absolute;
+  background-color: var(--nav-hover);
+  color: black;
+  padding: 0.7rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  bottom: 0;
+  left: 0;
+  border-radius: 0 10px 0 0;
+
+  transition: all 0.5s ease-in;
+}
+
+.section-b .rating p {
+  padding-right: 0.5rem;
+}
+
+.section-b .rating i {
+  padding: 0 0.05rem;
+}
+
+.section-b .blurb {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  width: 100%;
+  height: 70%;
+
+  padding: 1rem;
+
+  color: white;
+  background-color: var(--blurb-overlay);
+
+  top: 0;
+  left: 0;
+  transform: translateY(-110%);
+
+  transition: all 0.5s ease-in;
+}
+
+.section-b .blurb .underline {
+  margin: 0.5rem 0;
+  height: 2px;
+  width: 60px;
+  background: white;
+}
+
+.section-b .panel:hover > .rating, .section-b .panel:hover > .blurb {
+  transform: translateY(0%);
+}
+
+.section-b .blurb p {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+.section-b .blurb a {
+  color: white;
+}
+
+.section-b .blurb li {
+  padding: 0.5rem;
+}
+
+.section-b .blurb li:hover {
+  background-color: var(--mobile-hover);
+}
+
+.section-b h1 {
+  font-size: 3rem;
+}
+
+.section-b img {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+}
+
+/* ****************************** Mobile Use ****************************** */
+
+@media screen and (max-width: 800px) {
+  .section-b h1 {
+    font-size: 2rem
+  }
+
+  .section-b .products {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+
+    max-width: 500px;
+    min-width: 400px;
+  }
+}
+
+/* ************************ Section C - Style Strip ************************ */
+.section-c .style {
+  position: relative;
+  width: 100%;
+  height: 540px;
+  overflow: hidden;
+
+  background-color: var(--panel-theme2);
+
+  margin-bottom: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-c img.tote, .section-c img.cloud {
+  position: absolute;
+  object-fit: fill;
+
+  filter: blur(20px);
+
+  z-index: -1;
+
+  transition: all 0.5s ease-in;
+}
+
+.section-c img.tote {
+  right: -12%;
+  bottom: 0;
+  height: 100%;
+}
+
+.section-c img.cloud {
+  bottom: 0;
+  left: -10%;
+  height: 95%;
+}
+
+.section-c .style:hover > img.tote, .section-c .style:hover > img.cloud {
+  filter: blur(0px);
+}
+
+.section-c .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  max-width: 700px;
+}
+
+.section-c .text img {
+  width: 50px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.section-c h3 {
+  padding: 0.5rem;
+}
+
+.section-c h1 {
+  font-size: 4rem;
+  padding: 0.5rem;
+}
+
+.section-c p {
+  max-width: 500px;
+  padding: 0.5rem;
+}
+
+.section-c a {
+  font-weight: 900;
+  letter-spacing: 2px;
+
+  margin-top: 1rem;
+  padding: 1rem 1rem;
+  border: 1px solid var(--nav-hover);
+}
+
+.section-c a:hover {
+  background-color: var(--nav-hover);
+}
+
+/* ****************************** Mobile Use ****************************** */
+
+@media screen and (max-width: 800px) {
+  .section-c h1 {
+    font-size: 3rem;
+  }
+
+  .section-c img.tote {
+    display: none;
+  }
+
+  .section-c img.cloud {
+    opacity: 0.5;
+  }
+}
+
+/* ************************** Section D - Reviews ************************** */
+
+.section-d {
+  padding: 1rem;
+  padding-bottom: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section-d h1 {
+  font-size: 3rem;
+}
+
+.section-d .slideshow {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+.section-d .review {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 430px;
+  min-width: 550px;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto 6rem;
+
+  opacity: 0;
+  transition: all 0.5s ease-in;
+}
+
+.section-d .review h1 {
+  font-size: 2rem;
+}
+
+.section-d .review h2 {
+  font-size: 1.5rem;
+}
+
+.section-d .review p {
+  max-width: 500px;
+}
+
+.section-d .review .stars {
+  font-size: 2.5rem;
+  color: ;
+}
+
+.section-d .review h1, .section-d .review h2, .section-d .review p, .section-d .review .stars {
+  padding: 0.5rem;
+}
+
+/* ****************************** Mobile Use ****************************** */
+
+@media screen and (max-width: 800px) {
+  .section-d {
+    display: none;
+  }
+}
